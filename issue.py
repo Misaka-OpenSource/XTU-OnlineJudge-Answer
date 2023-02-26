@@ -50,7 +50,8 @@ for index, issue in enumerate(issues):
             issue.create_comment(f"Failed! 爬取AC代码时遇到错误{e} 重新打开Issue即可重试!")
         else:
             issue.create_comment(
-                f"Success! 成功爬取到AC代码!\n URL: https://YangRucheng.github.io/XTU-OnlineJudge-Answer/answer/{exam_id}/{problem_id}")
+                "Success! 成功爬取到AC代码!\n"
+                + f"URL: https://YangRucheng.github.io/XTU-OnlineJudge-Answer/answer/{exam_id}/{problem_id} (被墙)")
             logging.info(f"Success!")
             issue.lock("resolved")
     finally:
