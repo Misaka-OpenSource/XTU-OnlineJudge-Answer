@@ -1,0 +1,1 @@
+#include<stdio.h>int main(){        int t;    scanf("%d",&t);    while(t--)    {        int n,x[30];        scanf(" %d",&n);        for(int i=0;i<n;i++)        {            scanf("%d",&x[i]);        }        __int64 ans=1;        for(int i=0;i<n;i++)        {            ans=ans*x[i];        }        printf("%I64d\n",ans);    }}

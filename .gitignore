@@ -3,10 +3,11 @@
 *.jpg
 *.png
 *.txt
-*.json
+*.key
 **/data
 **/result
 *config.py
+error.html
 **/__pycache__
 **/node_modules
 

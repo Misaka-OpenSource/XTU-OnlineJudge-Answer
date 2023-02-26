@@ -1,0 +1,1 @@
+#include<stdio.h>int main(){    int n,T,i;    double cnt;    int a[100];    scanf("%d",&T);    while(T--){        cnt=1;        scanf("%d",&n);        for(i=0;i<n;i++){            scanf("%d",a+i);        }        for(i=0;i<n;i++){            cnt*=a[i];        }        if(n>0) printf("%.0lf\n",cnt);        else if(n==0) printf("0\n");    }    return 0; }

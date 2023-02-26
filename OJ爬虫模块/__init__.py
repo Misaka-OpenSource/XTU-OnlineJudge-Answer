@@ -15,7 +15,6 @@
 """
 
 
-from .登录 import Login
 from .AC名单 import AcceptedRoster
 from .OJ答案 import Answer
 

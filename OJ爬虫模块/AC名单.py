@@ -5,6 +5,7 @@ from .登录 import Login
 
 class AcceptedRoster(Login):
     """ AC名单爬虫 """
+
     async def __getAcceptedHTML(self, exam: int, problem: int, page: int = None) -> str:
         """ 获取AC名单HTML """
         url = parse.urljoin(
@@ -33,7 +34,10 @@ class AcceptedRoster(Login):
              for 提交 in 所有提交[3:-1]]
         return 所有学号
 
-    async def __call__(self, exam: int, problem: int, page: int = None) -> list[dict]:
+    async def getList(self, exam: int, problem: int) -> list[dict]:
         """ 返回AC名单的列表 """
-        await super().__call__()
-        return self.__analysisHTML(await self.__getAcceptedHTML(exam, problem, page))
+        res: list[dict] = []
+        for page in range(2):
+            res += self.__analysisHTML(await self.__getAcceptedHTML(exam, problem, page))
+        print(f"AC名单 {res}")
+        return res

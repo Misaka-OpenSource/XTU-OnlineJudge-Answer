@@ -20,7 +20,7 @@ class Login(object):
 
     def __init__(
         self,
-        username: str,
+        username: str = "",
         password: str = None,
         cookies: dict = None,
         login_url: str = "https://acm.xtu.edu.cn/exam/index.php/"
@@ -72,9 +72,10 @@ class Login(object):
             await asyncio.sleep(1)
             assert await self.checkLogin(resp.text), "登录不成功"
         except (Exception, BaseException) as e:
-            print(e)
+            print(f"{self.username} {e}")
             return False
         else:
+            print(f"{self.username} 登录成功")
             return True
 
     async def checkLogin(self, html: str = None) -> bool:
@@ -90,9 +91,13 @@ class Login(object):
         else:
             return True
 
-    async def __call__(self) -> dict:
+    async def login(self) -> dict:
         """ 登录, 返回cookies """
         tokens = self.getToken(await self.__accessHome())
         await asyncio.sleep(1)
-        assert await self.__login(tokens), "登录异常, 请检查账号密码"
+        assert await self.__login(tokens)
         return dict(self.cookies)
+
+    async def __call__(self) -> dict:
+        """ 登录, 返回cookies """
+        return await self.login()

@@ -10,7 +10,7 @@ class Answer(AcceptedRoster):
     """ OJ答案爬虫 """
     htmlList: list[str]
 
-    async def __getHTML(self, exam: int, problem: int, page: int = None) -> list[str]:
+    async def __getHTML(self, max_num: int = 3) -> list[str]:
         """ 获取HTML列表 """
         htmlList: list[str] = []
         for human in self.roster:
@@ -26,19 +26,19 @@ class Answer(AcceptedRoster):
             else:
                 htmlList.append(html)
             finally:
-                if len(htmlList) >= 3:
+                if len(htmlList) >= max_num:
                     break
                 await asyncio.sleep(1)
         self.htmlList = htmlList
         return htmlList
 
-    async def __call__(self, exam: int, problem: int, page: int = None) -> list[str]:
+    async def getAnswer(self, exam: int, problem: int, max_num: int = 3) -> list[str]:
         """ 返回至多3个代码 """
-        self.roster = await super().__call__(exam, problem, page)
-        random.shuffle(self.roster)
-        htmlList: list[str] = await self.__getHTML(exam, problem, page)
+        self.roster = await self.getList(exam, problem)
+        random.shuffle(self.roster)  # 随机排序
+        self.htmlList: list[str] = await self.__getHTML(max_num=max_num)
         codeList: list[str] = []
-        for html in htmlList:
+        for html in self.htmlList:
             soup = BeautifulSoup(html, 'html.parser')
             code = soup.find('code').next_element.get_text().strip()
             codeList.append(code)

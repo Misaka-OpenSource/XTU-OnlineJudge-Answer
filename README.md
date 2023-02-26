@@ -1,18 +1,33 @@
-# 湘潭大学OJ爬虫模块
+# 湘潭大学OJ 爬虫模块
 
-## 使用
+> XTU 程序设计实践练习网站
 
-> 确保Python版本>=3.9
+## 使用方式
 
-### 安装依赖
-```shell
-pip install -r requirements.txt
+在[本仓库](https://github.com/YangRucheng/XTU-OnlineJudge-Answer/issues)提出一个新的Issue, 必须使用指定的格式
+
+Issue标题: 
+
+```
+1461
 ```
 
-### 爬取答案
+Issue内容: 
 
-参见`demo.py`的示例
+```
+1461
+401
+```
 
-## 实现
+其中"1461"是problem_id, "401"是exam_id, 可以从网页URL得到  
+不包含引号和Markdown语法, 只需要3行纯文本, 第4行及之后的内容会被忽略  
 
-使用设定的账号和密码登录OJ, 进去评测记录页面获取AC名单, 逐一尝试以默认密码登录, 成功登录则返回代码记录
+## 运行
+
+使用GitHub Action自动运行代码
+
+- 自动从Issue中解析并执行爬虫代码  
+
+## 贡献
+
+你可以在Discussion中提出你的想法和建议(不含意见), 也可以提PR

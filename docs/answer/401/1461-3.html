@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Source Code</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META http-equiv=Content-Language content=en-US>
+<link rel='stylesheet' type='text/css' href='/exam/Web/Tpl/default/Public/Css/sh_style.css' />
+<script language='JavaScript' src='/exam/Web/Tpl/default/Public/Js/sh_main.js'></script> 
+<script language='JavaScript' src='/exam/Web/Tpl/default/Public/Js/sh_cpp.js'></script> 
+<META content="MSHTML 6.00.6000.16674" name=GENERATOR></HEAD>
+<BODY lang=en-US vLink=blue aLink=blue link=blue onload=sh_highlightDocument()>
+<P align=center><FONT color=#333399 size=4>Source Code</FONT></P>
+<TABLE style="FONT-SIZE: 10pt" align=center>
+  <TBODY>
+  <TR>
+    <TD><B>Problem:</B> <a href="/exam/index.php/problem/read/id/1461">1461</a> </TD>
+    <TD width=10></TD>
+    <TD><B>User: </B>202205566919</TD>
+  </TR>
+  <TR>
+    <TD><B>Memory:</B> 1132K</TD>
+    <TD width=10></TD>
+    <TD><B>Time:</B> 0MS</TD>
+  </TR>
+  <TR>
+    <TD><B>Language:</B> G++</TD>
+    <TD width=10></TD>
+    <TD><B>Result:</B> <font color=green>Accepted</font></TD></TR></TBODY></TABLE>
+<UL>
+  <LI>
+<FONT color=#333399 size=5>Source Code</FONT>
+<PRE class=sh_cpp style="FONT-FAMILY: Courier New,Courier,monospace">
+<code><span style="color: #000000">
+#include&lt;stdio.h&gt;<br />int&nbsp;main()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;t;<br />&nbsp;&nbsp;&nbsp;&nbsp;scanf("%d",&amp;t);<br />&nbsp;&nbsp;&nbsp;&nbsp;while(t--)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;n,x[30];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scanf("&nbsp;%d",&amp;n);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int&nbsp;i=0;i&lt;n;i++)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scanf("%d",&amp;x[i]);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__int64&nbsp;ans=1;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int&nbsp;i=0;i&lt;n;i++)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans=ans*x[i];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("%I64d\n",ans);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span>
+</code></PRE>
+  </LI>
+</UL></BODY></HTML><a href="./1461-3.cpp">下载CPP文件</a>
