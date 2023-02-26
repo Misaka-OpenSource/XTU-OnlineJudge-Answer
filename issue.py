@@ -4,7 +4,6 @@ from github.Issue import Issue
 from github import Github
 import logging
 import asyncio
-import json
 import sys
 
 import run
@@ -48,6 +47,7 @@ for index, issue in enumerate(issues):
             asyncio.run(run.main(exam_id, problem_id, 3))
         except Exception as e:
             issue.create_comment(f"Failed! 爬取AC代码时遇到错误{e} 重新打开Issue即可重试!")
+            raise e
         else:
             issue.create_comment(
                 "Success! 成功爬取到AC代码!\n"

@@ -28,7 +28,7 @@ jobs:
           pip install -r requirements.txt
           python3 issue.py ${{ secrets.ACCESS_TOKEN }}
 
-      - name: 从Issue中添加名单添加名单
+      - name: 提交到GitHub
         env:
           GITHUB_REPO: github.com/YangRucheng/XTU-OnlineJudge-Answer
         run: |
