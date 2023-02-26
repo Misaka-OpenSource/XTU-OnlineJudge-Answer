@@ -16,7 +16,7 @@ async def main(exam_id: int, problem_id: int, max_num=3):
         os.makedirs(f"docs/answer/{exam_id}")
 
     html_index = '<meta charset="utf-8">'
-    for index in range(max_num):
+    for index in range(len(codeList)):
         with open(f"docs/answer/{exam_id}/{problem_id}-{index+1}.cpp", "w")as fw:
             fw.write(codeList[index])
         with open(f"docs/answer/{exam_id}/{problem_id}-{index+1}.html", "w")as fw:
@@ -28,6 +28,10 @@ async def main(exam_id: int, problem_id: int, max_num=3):
 
     with open("docs/answer/index.json", "r")as fr:
         data: list = json.load(fr)
-    data += [{'exam_id': exam_id, 'problem_id': problem_id, 'max_num': max_num}]
+    data += [{
+        'exam_id': exam_id,
+        'problem_id': problem_id,
+        'max_num': len(codeList)
+    }]
     with open("docs/answer/index.json", "w")as fw:
         json.dump(data, fw, ensure_ascii=False, indent=4)
