@@ -24,7 +24,9 @@ Issue内容:
 ```
 
 其中"1461"是problem_id, "401"是exam_id, 可以从网页URL得到  
-不包含引号和Markdown语法, 只需要3行纯文本, 第4行及之后的内容会被忽略  
+不包含引号和Markdown语法, 只需要2行纯文本, 第3行及之后的内容会被忽略
+
+**注意** 只能爬取 [https://acm.xtu.edu.cn/exam/index.php](https://acm.xtu.edu.cn/exam/index.php) 的代码
 
 ## 运行
 
