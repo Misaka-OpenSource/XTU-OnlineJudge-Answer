@@ -2,7 +2,11 @@
 
 > XTU 程序设计实践练习网站
 
-## 使用方式
+## 已有代码
+
+[汇总页面](https://YangRucheng.github.io/XTU-OnlineJudge-Answer)
+
+## 查询
 
 在[本仓库](https://github.com/YangRucheng/XTU-OnlineJudge-Answer/issues)提出一个新的Issue, 必须使用指定的格式
 
@@ -27,6 +31,9 @@ Issue内容:
 使用GitHub Action自动运行代码
 
 - 自动从Issue中解析并执行爬虫代码  
+
+本地运行?
+查看 `run.py` 中的示例
 
 ## 贡献
 
