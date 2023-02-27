@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Source Code</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META http-equiv=Content-Language content=en-US>
+<link rel='stylesheet' type='text/css' href='/exam/Web/Tpl/default/Public/Css/sh_style.css' />
+<script language='JavaScript' src='/exam/Web/Tpl/default/Public/Js/sh_main.js'></script> 
+<script language='JavaScript' src='/exam/Web/Tpl/default/Public/Js/sh_cpp.js'></script> 
+<META content="MSHTML 6.00.6000.16674" name=GENERATOR></HEAD>
+<BODY lang=en-US vLink=blue aLink=blue link=blue onload=sh_highlightDocument()>
+<P align=center><FONT color=#333399 size=4>Source Code</FONT></P>
+<TABLE style="FONT-SIZE: 10pt" align=center>
+  <TBODY>
+  <TR>
+    <TD><B>Problem:</B> <a href="/exam/index.php/problem/read/id/1464">1464</a> </TD>
+    <TD width=10></TD>
+    <TD><B>User: </B>202205570904</TD>
+  </TR>
+  <TR>
+    <TD><B>Memory:</B> 1540K</TD>
+    <TD width=10></TD>
+    <TD><B>Time:</B> 139MS</TD>
+  </TR>
+  <TR>
+    <TD><B>Language:</B> G++</TD>
+    <TD width=10></TD>
+    <TD><B>Result:</B> <font color=green>Accepted</font></TD></TR></TBODY></TABLE>
+<UL>
+  <LI>
+<FONT color=#333399 size=5>Source Code</FONT>
+<PRE class=sh_cpp style="FONT-FAMILY: Courier New,Courier,monospace">
+<code><span style="color: #000000">
+#include&nbsp;&lt;iostream&gt;<br />#include&nbsp;&lt;cstdio&gt;<br />#include&nbsp;&lt;cstring&gt;<br />#include&nbsp;&lt;cmath&gt;<br />#include&nbsp;&lt;algorithm&gt;<br /><br />using&nbsp;namespace&nbsp;std;<br /><br />int&nbsp;re()&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;p&nbsp;=&nbsp;0,&nbsp;f&nbsp;=&nbsp;1;&nbsp;char&nbsp;i&nbsp;=&nbsp;getchar();<br />&nbsp;&nbsp;&nbsp;&nbsp;while(i&nbsp;&lt;&nbsp;'0'&nbsp;||&nbsp;i&nbsp;&gt;&nbsp;'9')&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(i&nbsp;==&nbsp;'-')&nbsp;&nbsp;f&nbsp;=&nbsp;-1;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i&nbsp;=&nbsp;getchar();<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;while(i&nbsp;&gt;=&nbsp;'0'&nbsp;&amp;&amp;&nbsp;i&nbsp;&lt;=&nbsp;'9')&nbsp;p&nbsp;=&nbsp;p&nbsp;*&nbsp;10&nbsp;+&nbsp;i&nbsp;-&nbsp;'0',&nbsp;i&nbsp;=&nbsp;getchar();<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;f&nbsp;*&nbsp;p;<br />}<br /><br />const&nbsp;int&nbsp;N&nbsp;=&nbsp;3e6&nbsp;+&nbsp;10;<br /><br />int&nbsp;T;<br />int&nbsp;n,&nbsp;k,&nbsp;tot,&nbsp;top,&nbsp;res;<br />int&nbsp;stack[N],&nbsp;sum[N];<br />char&nbsp;s[N];<br /><br />int&nbsp;main()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;T&nbsp;=&nbsp;re();<br />&nbsp;&nbsp;&nbsp;&nbsp;while(T--)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n&nbsp;=&nbsp;re();&nbsp;k&nbsp;=&nbsp;re();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tot&nbsp;=&nbsp;0;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scanf("%s",&nbsp;&amp;s);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tot&nbsp;=&nbsp;top&nbsp;=&nbsp;res&nbsp;=&nbsp;0;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;n;&nbsp;i++)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stack[++top]&nbsp;=&nbsp;s[i]&nbsp;-&nbsp;'0';<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tot&nbsp;+=&nbsp;s[i]&nbsp;-&nbsp;'0';<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(tot&nbsp;==&nbsp;k)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;top&nbsp;-=&nbsp;k;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res++;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tot&nbsp;=&nbsp;0;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(s[i]&nbsp;==&nbsp;'0')&nbsp;tot&nbsp;=&nbsp;0;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int&nbsp;i&nbsp;=&nbsp;1;&nbsp;i&nbsp;&lt;=&nbsp;top;&nbsp;i++)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sum[i]&nbsp;=&nbsp;sum[i&nbsp;-&nbsp;1]&nbsp;+&nbsp;stack[i];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int&nbsp;i&nbsp;=&nbsp;1;&nbsp;i&nbsp;+&nbsp;k&nbsp;-&nbsp;1&nbsp;&lt;=&nbsp;top;&nbsp;i++)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;l,&nbsp;r;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;=&nbsp;i;&nbsp;r&nbsp;=&nbsp;i&nbsp;+&nbsp;k&nbsp;-&nbsp;1;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(sum[r]&nbsp;-&nbsp;sum[l&nbsp;-&nbsp;1]&nbsp;==&nbsp;k&nbsp;-&nbsp;1)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res++;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("%d\n",&nbsp;res);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int&nbsp;i&nbsp;=&nbsp;1;&nbsp;i&nbsp;&lt;=&nbsp;top;&nbsp;i++)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stack[i]&nbsp;=&nbsp;sum[i]&nbsp;=&nbsp;0;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;0;<br />}<br /></span>
+</code></PRE>
+  </LI>
+</UL></BODY></HTML><a href="./1464-2.cpp">下载CPP文件</a>
