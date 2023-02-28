@@ -15,7 +15,7 @@ async def main(exam_id: int, problem_id: int, max_num=3):
     if not os.path.exists(f"docs/answer/{exam_id}"):
         os.makedirs(f"docs/answer/{exam_id}")
 
-    html_index = '<meta charset="utf-8">'
+    html_index = '<meta charset="utf-8"><link rel="stylesheet" href="../../style.css">'
     for index in range(len(codeList)):
         with open(f"docs/answer/{exam_id}/{problem_id}-{index+1}.cpp", "w")as fw:
             fw.write(codeList[index])

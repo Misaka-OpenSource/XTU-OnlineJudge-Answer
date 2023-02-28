@@ -20,9 +20,27 @@
     /* 列表项行高 */
     color: #333;
     /* 列表项字体颜色 */
+    display: inline-block;
+    white-space: nowrap;
 }
 
 #list li:hover {
     background-color: #e0e0e0;
     /* 鼠标悬停时的背景色 */
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+a:focus,
+a:active {
+    outline: 0;
 }

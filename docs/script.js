@@ -20,3 +20,13 @@ fetch('answer/index.json')
         });
     })
     .catch(error => console.error(error));
+
+
+const list = document.getElementById('list');
+
+list.addEventListener('click', (event) => {
+    const target = event.target;
+    if (target.tagName === 'LI' && target.firstElementChild.tagName === 'A') {
+        target.firstElementChild.click();
+    }
+});
