@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Clone仓库
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main
 
@@ -20,17 +20,20 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: 安装依赖, 执行代码
+      - name: 安装依赖
         run: |
           pip install --upgrade pip
           pip install httpx[http2]
           pip install pygithub
           pip install -r requirements.txt
+
+      - name: 运行脚本
+        run: |
           python3 issue.py ${{ secrets.ACCESS_TOKEN }}
 
       - name: 提交到GitHub
         env:
-          GITHUB_REPO: github.com/YangRucheng/XTU-OnlineJudge-Answer
+          GITHUB_REPO: github.com/Misaka-OpenSource/XTU-OnlineJudge-Answer
         run: |
           git config user.name "Auto Get OJ Answer"
           git config user.email "admin@yangrucheng.top"

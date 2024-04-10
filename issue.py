@@ -17,7 +17,7 @@ ACCESS_TOKEN = sys.argv[1]
 github = Github(ACCESS_TOKEN)
 
 # 获取存储库
-repo: Repository = github.get_repo('YangRucheng/XTU-OnlineJudge-Answer')
+repo: Repository = github.get_repo('Misaka-OpenSource/XTU-OnlineJudge-Answer')
 
 # 获取所有开放的问题
 issues: PaginatedList = repo.get_issues(state='open')
@@ -51,7 +51,7 @@ for index, issue in enumerate(issues):
         else:
             issue.create_comment(
                 "Success! 成功爬取到AC代码!\n"
-                + f"URL: https://YangRucheng.github.io/XTU-OnlineJudge-Answer/answer/{exam_id}/{problem_id} (被墙)")
+                + f"URL: https://https://misaka-opensource.github.io/XTU-OnlineJudge-Answer/answer/{exam_id}/{problem_id} (被墙)")
             logging.info(f"Success!")
             issue.lock("resolved")
     finally:

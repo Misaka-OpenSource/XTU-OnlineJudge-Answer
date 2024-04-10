@@ -13,7 +13,7 @@ fetch('answer/index.json')
         data.forEach(item => {
             const li = document.createElement('li');
             const a = document.createElement('a');
-            a.href = `https://YangRucheng.github.io/XTU-OnlineJudge-Answer/answer/${item.exam_id}/${item.problem_id}`
+            a.href = `/XTU-OnlineJudge-Answer/answer/${item.exam_id}/${item.problem_id}`
             a.textContent = `${item.exam_id}/${item.problem_id}`
             li.appendChild(a);
             list.appendChild(li);
