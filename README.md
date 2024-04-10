@@ -4,11 +4,11 @@
 
 ## 已有代码
 
-[汇总页面](https://YangRucheng.github.io/XTU-OnlineJudge-Answer)
+[汇总页面](https://misaka-opensource.github.io/XTU-OnlineJudge-Answer)
 
 ## 查询
 
-在[本仓库](https://github.com/YangRucheng/XTU-OnlineJudge-Answer/issues)提出一个新的Issue, 必须使用指定的格式
+在提出一个新的Issue, 必须使用指定的格式
 
 Issue标题: 
 
